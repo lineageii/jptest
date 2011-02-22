@@ -1,0 +1,62 @@
+#body{
+	width:750px;
+	background:#FF9999;
+}
+
+#header{
+	background:#66CCCC;
+}
+
+#title{
+	background:#CCFF66;
+}
+
+#search{
+	background:#993366;
+}
+
+#left_content{
+	width:250px;
+	background:#333399;
+	float:left；
+}
+
+#center_content{
+	background:#FFCC00;
+}
+
+#right_content{
+	width:200px;
+	background:#FFFF66;
+	float:right
+}
+
+#footer{
+	clear:both;
+    width:750px;
+	background:#CCFF99;
+}
+
+#tab li{
+	float:left;
+	margin-right:18px;
+}
+/*
+#title{
+	width:500px;
+	margin:0 auto;
+}
+
+#title {
+}
+#tab li {
+margin-right: 18px;
+float: left;
+}
+#search{
+	
+}
+.s_input {
+    float: left;
+}
+*/

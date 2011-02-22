@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-12-23 3:02:45 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.sitepk.hibernate.SpSite" table="sp_site">
+        <id name="siteid" type="string">
+            <column name="SITEID" length="13" />
+            <generator class="assigned" />
+        </id>
+        <property name="url" type="string">
+            <column name="URL" length="200" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="50" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="500" />
+        </property>
+        <property name="rating" type="big_decimal">
+            <column name="RATING" precision="4" />
+        </property>
+        <property name="rateUserCount" type="java.lang.Integer">
+            <column name="RATE_USER_COUNT" precision="8" scale="0" />
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="PRICE" precision="18" />
+        </property>
+        <property name="lan" type="string">
+            <column name="LAN" length="5" />
+        </property>
+        <property name="country" type="string">
+            <column name="COUNTRY" length="50" />
+        </property>
+        <set name="spSitetagses" table="sp_sitetags" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SITEID" length="13" not-null="true" />
+            </key>
+            <one-to-many class="com.sitepk.hibernate.SpSitetags" />
+        </set>
+    </class>
+</hibernate-mapping>

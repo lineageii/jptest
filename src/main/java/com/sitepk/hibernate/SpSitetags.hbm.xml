@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-12-23 3:02:45 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.sitepk.hibernate.SpSitetags" table="sp_sitetags" >
+        <composite-id name="id" class="com.sitepk.hibernate.SpSitetagsId">
+            <key-property name="id" type="string">
+                <column name="ID" length="13" />
+            </key-property>
+            <key-property name="siteid" type="string">
+                <column name="SITEID" length="13" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="spTags" class="com.sitepk.hibernate.SpTags" fetch="select">
+            <column name="TAGNAME" length="20" not-null="true" />
+        </many-to-one>
+        <many-to-one name="spSite" class="com.sitepk.hibernate.SpSite" update="false" insert="false" fetch="select">
+            <column name="SITEID" length="13" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

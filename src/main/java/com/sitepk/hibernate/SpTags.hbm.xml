@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-12-23 3:02:45 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.sitepk.hibernate.SpTags" table="sp_tags" >
+        <id name="tagname" type="string">
+            <column name="TAGNAME" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="isclosed" type="java.lang.Character">
+            <column name="ISCLOSED" length="1" />
+        </property>
+        <property name="total" type="java.lang.Integer">
+            <column name="TOTAL" precision="8" scale="0" />
+        </property>
+        <set name="spSitetagses" table="sp_sitetags" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TAGNAME" length="20" not-null="true" />
+            </key>
+            <one-to-many class="com.sitepk.hibernate.SpSitetags" />
+        </set>
+    </class>
+</hibernate-mapping>

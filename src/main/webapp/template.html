@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title>google Similar Sites, Find the best 18 websites like google.com</title>
+<meta name="description" content="A list of 18 websites that are similar to google.com - google. Find sites in topics like google,search,searchengine,engine,web,reference,internet," />
+<meta http-equiv="content-language" content="en" />
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+</head>
+<script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+<script src="jquery.tmpl.js" type="text/javascript"></script
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21009269-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript"> 
+
+$(document).ready(function(){
+    $('div').autoResize({height:100});  //用法
+});  
+
+jQuery.fn.autoResize = function(options)
+{
+    var opts = {
+        'width' : 400,
+        'height': 300
+    }
+  
+    var opt = $.extend(true, {},opts,options || {});
+    var width = opt.width;
+    var height = opt.height;
+    $('img',this).each(function(){
+        var image = new Image();
+        image.src = $(this).attr('src');
+        //开始检查图片
+        if(image.width > 0 && image.height > 0 ){
+            var image_rate = 1;
+            if( (width / image.width) < (height / image.height)){
+                image_rate = width / image.width ;
+            }else{
+                image_rate = height / image.height ;
+            }
+            if ( image_rate <= 1){
+                $(this).width(image.width * image_rate);
+                $(this).height(image.height * image_rate);
+            }
+        }
+    });
+}
+
+
+function onClickSearch(){
+	ajaxSearchSimilarSite($("#searchTxt").val());
+}
+
+function ajaxSearchSimilarSite(siteUrl){
+	$.ajax({
+		url:'http://localhost:8080/rest/site/' + siteUrl,
+		type:'GET',
+		dataType:'json',
+		success:function(data){
+			$.each(data['site'], function(i,site){
+				var siteResult = $('.siteResult:last');
+				var template = "<div><h1>{url}</h1><p>{name}</p></div>";
+				siteResult.append(copyDivSiteResult(template, site));
+			});
+			
+		}
+		
+	});
+}
+
+function copyDivSiteResult(template, data) {
+	with(data) {
+		return template.replace(/\{([a-zA-Z0-9]+)\}/g,function(t,c) {
+			return eval("("+c+")");
+		});
+	}
+
+}
+</script>
+<div class="search">
+	<input type="text" id="searchTxt" />
+	<input type="button" id="searchBtn" value="搜索相似网站" onclick="onClickSearch()"/> 
+</div>
+
+<div class="siteResult">
+  <div class="siteImage"><a id="soso.com" name="soso.com" target="_blank" onclick="_gaq.push(['_trackPageview','/goto/www.soso.com']);" href="/goto/www.soso.com"><img class="siteSnap" src="http://www.yesnap.com/preview/http://soso.com" /></a></div>
+  <div class="siteResultDescription">
+    <h2 class="siteResultDescriptionTitle"> <a title="soso.com/" onclick="javascript:_gaq.push(['_trackPageview','/goto/http://www.soso.com/']);" target="_blank" class="siteHeadlineLink" href="/goto/http://www.soso.com/">soso.com</a> </h2>
+    <h3>搜搜更懂你 腾讯QQ旗下的搜索引擎网站</h3>
+    <div class="siteTags"> <span>Tag:</span><span class="siteTag">搜索</span><span class="siteTag">腾讯</span> </div>
+    <div class="resultSimilarBar">
+      <h3><a href="http://www.sitepk.com/site/soso.com" class="resultFindSimilarLink">与soso.com相似的网站&raquo;</a></h3>
+    </div>
+  </div>
+</div>
+</html>
